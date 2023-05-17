@@ -35,6 +35,7 @@ export function AutoSizedImage({
   children = null,
 }: Props) {
   const store = useStores()
+
   const [dim, setDim] = React.useState<Dimensions | undefined>(
     store.imageSizes.get(uri),
   )
@@ -46,6 +47,7 @@ export function AutoSizedImage({
     if (dim) {
       return
     }
+
     store.imageSizes.fetch(uri).then(newDim => {
       if (aborted) {
         return

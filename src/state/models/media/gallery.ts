@@ -39,11 +39,7 @@ export class GalleryModel {
     if (!this.images.some(i => i.path === image_.path)) {
       const image = new ImageModel(this.rootStore, image_)
 
-      if (!isNative) {
-        await image.manipulate({})
-      } else {
-        await image.compress()
-      }
+      image.manipulate({})
 
       runInAction(() => {
         this.images.push(image)

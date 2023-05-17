@@ -71,6 +71,7 @@ export async function openCropper(
   const item = await openCropperFn({
     ...opts,
     forceJpg: true, // ios only
+    compressImageQuality: 0.9,
   })
 
   return {
